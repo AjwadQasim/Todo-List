@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+</head>
+<body>
+<div id="content"> 
+    <h1>    TODO LIST</h1>
+  <input type="text" id="input" placeholder="ADD TASK">
+  <button onclick="addValue()" id="add">ADD</button> 
+  <ul id="unorder"></ul>
+</div>
+<style>
+    #content{
+        border: 3px solid black;
+        width: 29rem;
+        border-radius: 6px;
+        background-color: azure;
+        margin-left: 26rem;
+        margin-top: 3rem;
+    }
+    #input{
+        width: 20rem;
+        height: 1.9rem;
+        margin-top: 10px;
+        margin-left: 10px;
+        font-size: 1rem;
+    }
+    #add{
+        width: 5rem;
+    height: 2rem;
+    border: none;
+    border-radius: 5px;
+    background-color: aquamarine;
+    margin-left: 1rem;
+    font-weight: bold;
+    color: green;
+    cursor: pointer;
+
+    }
+    h1{
+        margin-left: 8rem;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    li{
+        border: 1.9px solid black;
+        width: auto;
+        height: auto;
+        border-radius: 0.7rem;
+        margin-top: 0.7rem;
+        margin-right: 10px;
+        font-size: 1.1rem;
+        padding-left: 0.2rem;
+    }
+    #delete{
+    background-color: tomato;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 18.5rem;
+    width: auto;
+    height: auto;
+    }
+</style>
+<script>
+  function addValue() {
+    var input = document.getElementById("input").value;
+    var uolist = document.getElementById("unorder");
+    
+    if (input === "") return;
+    
+    var item = document.createElement("li");
+    item.innerHTML = `${input}
+      <button onclick="deleteTask(this)" id="delete">CLEAR</button>`;
+    document.getElementById("input").value="";
+    uolist.appendChild(item);
+    input.value="";    
+  }
+  
+ function deleteTask(buttonElement) {
+    var Output= buttonElement.parentNode;
+    Output.remove();
+}
+</script>
+</body>
+</html>
